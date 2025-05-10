@@ -58,7 +58,7 @@ I haven't developed the Linux Version as much since I made this back when I was 
 5. cd to ~/.bashrc
 6. Vim or nano (or use your editor of choice) .bashrc
 7. At the very bottom, add the following:
-alias minibreak='cd /path/to/minibreak-scripts && watch -n 900 ./call_minibreak.sh'
+`alias minibreak='cd /path/to/minibreak-scripts && watch -n 900 ./call_minibreak.sh'`
 8. Save and exit
 9. Make sure you are in your home directory and type: source .bashrc
 10. Now, when you want to run the minibreak script, just type minibreak in your terminal and once you've ran it for the first time since you logged in, it will keep running so long as you leave the terminal open.
