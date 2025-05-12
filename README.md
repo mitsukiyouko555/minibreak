@@ -10,20 +10,40 @@ This is only available for Mac and Linux Machines at the moment.
 
 ### Mac Installation (and how to Uninstall)
 
-Note to self, include some screenshots and vids here.
+IMPORTANT!!!
+
+PREREQUISITE:
+
+Before Installing this on a Mac, You'll need to do some set up as the Mac's terminal does not automatically close the terminal window upon exit for some strange reason..
+
+You actually have to set it to do that...
+
+1. Open a terminal
+2. Go to Terminal > Settings, Select Profile > When the shell exits > Close the Window
+
+![1](Images/1.jpg)
+![2](Images/2.jpg)
+![3](Images/3.jpg)
+
+If you skip this step, every time the pop up appears, it will leave behind a tab and soon you will have a bunch of terminal tabs open that don't close themselves..
+
+Once you've completed this prerequisite, proceed to the installation steps.
 
 ##### Install
 1. Download the code for this Repo
 2. Open a Terminal
 3. cd to the minibreak folder where you downloaded it.
 4. If you would like to use the default cron job duration of 15 minutes, Run the installer with ./installer.sh. (If it's not letting you run it, run chmod +x installer.sh)
-5. Now, every 15 mins, a terminal should pop up with the minibreak display.
+5. If you get a pop up saying that "Terminal would like to administer your computer", click Allow. This only pops up because we are setting up a cron job, which requires admin priviledges.
+![4](Images/4.jpg)
+6. Now, every 15 mins, a terminal should pop up with the minibreak display.
 
 ##### Uninstall
 1. If you still have the minibreak folder somewhere, cd to it. Otherwise, redownload the code for this repo
 2. Open a terminal
 3. cd to the minibreak folder
 4. run ./uninstaller.sh and if its not letting you run, try chmod +x uninstaller.sh.
+5. If you get a pop up saying that "Terminal would like to administer your computer", click Allow. (Again, this is for the Cron job, of which we are now removing.)
 
 To Manually remove (if the uninstaller script is not working), run the following commands:
 1. crontab -l | grep -v "startminibreak.sh" | crontab
@@ -31,12 +51,11 @@ To Manually remove (if the uninstaller script is not working), run the following
 3. rm ~/.local/bin/minibreak.sh
 
 ##### Changing the Duration Between Pop Ups
-1. Run the uninstaller (if you already installed it.. If not, skip this step)
-2. Edit the installer.sh script and edit the cron job to your liking.
-3. Save and Exit
-4. Run the installer
-
-Tip: Use Crontab Guru to figure out how to structure the cron job to your liking. (https://crontab.guru)
+1. Open the terminal
+2. Run the following command to remove the 15 min crontab (If you want to add MORE durations on top of the existing 15 mins, then skip this step): `crontab -l | grep -v "startminibreak.sh" | crontab`
+3. Use Crontab Guru to figure out how to structure the cron job to your liking. (https://crontab.guru)
+4. In the terminal run `<your cron job duration> ~/.local/bin/startminibreak.sh`
+Replace `<your cron job duration>` with something like * * * * * with the numbers replacing the asterisk of your choosing.
 
 ##### Changing the Content of the Minibreak
 
