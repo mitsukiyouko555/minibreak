@@ -1,7 +1,5 @@
 # It's Time for a Minibreak!
 
-Note: This is WIP at the moment...
-
 ### Overview
 
 This little script 'app' pops up a reminder to take a mini break every 15 minutes.
